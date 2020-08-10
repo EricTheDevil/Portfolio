@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import './app.css';
 import { Header, Profile, FullPageScroller, Timeline } from './lib/common.js'
-import { CSSTransition } from "react-transition-group";
 
 class App extends Component {
   render() {
