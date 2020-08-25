@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-
+import { ProfileDescription } from '../lib/common.js'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 class Profile extends Component {
     state = {  }
     render() { 
         return ( 
-            <div style={imgBg}>
-            <div style = {test}> </div>
-        </div> 
+            <div style={test} className="rounded">
+                <Container style={imgBg}>     
+                <Row>
+                    <Col md={{ span: 4, offset: 8 }}>
+                        <ProfileDescription />
+                    </Col>
+                </Row>
+            </Container>
+          </div>
         );
     }
 }
@@ -15,16 +24,17 @@ class Profile extends Component {
     padding: 0,
     maxWidth: '100%',
     height: '100vh',
-    width: '100%',
+    width: 'auto',
+    border: '2px solid black',
     overflow: 'hidden',
-    backgroundImage: `url(${require("../img/background-2.jpg")})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',  
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
  }
   const imgBg = {
-        maxWidth: '100%',
-        height: 'auto',
-        width: 'auto'
+    border : '2px solid black',
     }
 export default Profile;

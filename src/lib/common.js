@@ -3,7 +3,8 @@
 
 
 // all the imports from the components folder
-export {default as Header} from '../components/header.jsx'
-export {default as Profile} from '../components/profile.jsx'
-export {default as Timeline} from '../components/timeline.jsx'
+export {default as Header} from '../components/Header.jsx'
+export {default as Profile} from '../components/Profile.jsx'
+export {default as Timeline} from '../components/Timeline.jsx'
 export {default as FullPageScroller} from '../components/FullPageScroller.jsx'
+export {default as ProfileDescription} from '../components/ProfileDescription.jsx'
