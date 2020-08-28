@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './app.css';
-import { Header, Profile, FullPageScroller, Timeline } from './lib/common.js'
+import { Header, Profile, FullPageScroller, Timeline, Projects } from './lib/common.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
             <Header />
             <Profile />
             <Timeline />
+            <Projects />
         </main>
       </div>
 
