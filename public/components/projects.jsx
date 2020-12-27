@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-class Timeline extends Component {
+class Projects extends Component {
     state = {  }
     render() { 
         return ( 
-        <div style={imgBg}>
+        <div style={Aye}>
+            <div className="box"></div>
             <div style = {test}> </div>
         </div> 
         );
@@ -17,14 +18,10 @@ class Timeline extends Component {
     height: '100vh',
     width: '100%',
     overflow: 'hidden',
-    backgroundImage: `url(${require("../img/background-3.jpg")})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',  
-    backgroundSize: 'cover'
  }
-  const imgBg = {
+  const Aye = {
         maxWidth: '100%',
         height: 'auto',
         width: 'auto'
     }
-export default Timeline;
+export default Projects;
