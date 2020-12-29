@@ -59,7 +59,6 @@ const test = {
 	maxWidth: '100%',
 	height: '100vh',
 	width: 'auto',
-	border: '2px solid black',
 	overflow: 'hidden',
 	background: '#f1efed',
 	display: 'flex',
