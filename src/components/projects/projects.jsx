@@ -10,9 +10,9 @@ import {
 import { gsap } from 'gsap';
 
 import '../../lib/font.css';
-import './header.css';
+import './projects.css';
 
-const Header = React.forwardRef((props, ref) => {
+const Projects = React.forwardRef((props, ref) => {
 	const fixedText = ' ';
 	const whenNotFixed = 'Introduction';
 	const [headerText, setHeaderText] = useState(whenNotFixed);
@@ -78,4 +78,4 @@ const Header = React.forwardRef((props, ref) => {
 		</header>
 	);
 });
-export default Header;
+export default Projects;
