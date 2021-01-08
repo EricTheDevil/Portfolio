@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { ProfileDescription, ProfileImage } from '../lib/common.js';
+import { ProfileDescription, ProfileImage } from '../../lib/common.js';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import { gsap } from 'gsap';
 
 class Profile extends Component {
 	state = {};
@@ -20,15 +19,13 @@ class Profile extends Component {
 					<Row>
 						<Col style={cardImg} xs={4} className="rounded">
 							<img
-								src={require('../img/background-2.jpg')}
+								src={require('../../img/background-2.jpg')}
 								width="100%"
 								height="100%"
 								alt="Smiley face"></img>
 						</Col>
 						<Col style={CardName} xs={{ offset: 1 }}>
-							<center>
-								<p>Not just your average boy</p>
-							</center>
+							<center> AA</center>
 						</Col>
 					</Row>
 				</Container>
@@ -47,9 +44,9 @@ const mainWrapper = {
 	maxWidth: '100%',
 	height: '100vh',
 	width: 'auto',
-	border: '2px solid black',
+
 	overflow: 'hidden',
-	background: '#f1efed',
+	background: '#111f28',
 	display: 'flex',
 	flexDirection: 'column',
 };
@@ -62,15 +59,20 @@ const test = {
 	height: '100vh',
 	width: 'auto',
 	overflow: 'hidden',
-	background: '#f1efed',
+	background: '#111f28',
 	display: 'flex',
 	flexDirection: 'row',
 };
 const cardImg = {
-	border: '2px solid black',
+	borderBottomLeftRadius: '5em',
+	borderBottomRightRadius: '5em',
+	borderTopLeftRadius: '50em',
+	borderTopRightRadius: '50em',
+	border: '5px solid white',
 };
 const CardName = {
-	border: '2px solid black',
+	borderRadius: '5em',
+	background: '#f1efed',
 };
 
 export default Profile;
