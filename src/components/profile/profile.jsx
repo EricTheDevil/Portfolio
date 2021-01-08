@@ -3,7 +3,6 @@ import { ProfileDescription, ProfileImage } from '../../lib/common.js';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import { gsap } from 'gsap';
 
 class Profile extends Component {
 	state = {};
@@ -26,7 +25,7 @@ class Profile extends Component {
 								alt="Smiley face"></img>
 						</Col>
 						<Col style={CardName} xs={{ offset: 1 }}>
-							<p> AA</p>
+							<center> AA</center>
 						</Col>
 					</Row>
 				</Container>
@@ -45,9 +44,9 @@ const mainWrapper = {
 	maxWidth: '100%',
 	height: '100vh',
 	width: 'auto',
-	border: '2px solid black',
+
 	overflow: 'hidden',
-	background: '#f1efed',
+	background: '#111f28',
 	display: 'flex',
 	flexDirection: 'column',
 };
@@ -60,15 +59,20 @@ const test = {
 	height: '100vh',
 	width: 'auto',
 	overflow: 'hidden',
-	background: '#f1efed',
+	background: '#111f28',
 	display: 'flex',
 	flexDirection: 'row',
 };
 const cardImg = {
-	border: '2px solid black',
+	borderBottomLeftRadius: '5em',
+	borderBottomRightRadius: '5em',
+	borderTopLeftRadius: '50em',
+	borderTopRightRadius: '50em',
+	border: '5px solid white',
 };
 const CardName = {
-	border: '2px solid black',
+	borderRadius: '5em',
+	background: '#f1efed',
 };
 
 export default Profile;

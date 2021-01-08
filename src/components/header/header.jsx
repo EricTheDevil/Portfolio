@@ -8,9 +8,9 @@ import {
 	Container,
 } from 'react-bootstrap/';
 import { gsap } from 'gsap';
-
 import '../../lib/font.css';
 import './header.css';
+import ComputerIcon from '@material-ui/icons/Computer';
 
 const Header = React.forwardRef((props, ref) => {
 	const fixedText = ' ';
@@ -19,10 +19,10 @@ const Header = React.forwardRef((props, ref) => {
 
 	useEffect(() => {
 		const header = document.getElementById('myHeader');
+		header.classList.add('sticky');
 		const sticky = header.offsetTop;
 		const scrollCallBack = window.addEventListener('scroll', () => {
 			if (window.pageYOffset > sticky) {
-				header.classList.add('sticky');
 				if (headerText !== fixedText) {
 					setHeaderText(fixedText);
 				}
@@ -67,13 +67,24 @@ const Header = React.forwardRef((props, ref) => {
 		<header id="myHeader" className="header">
 			<Container>
 				<Row>
-					<Col>
-						<span> Time</span>
+					<Col xs={3}>
+						<center>
+							<ComputerIcon />
+							<span> Time</span>
+						</center>
 					</Col>
-					<Col>
-						<span>{headerText}</span>
+					<Col xs={6}>
+						<center>
+							<span> Title{headerText}</span>
+						</center>
+					</Col>
+					<Col xs={3}>
+						<center>
+							<span>Location</span>
+						</center>
 					</Col>
 				</Row>
+				<Row></Row>
 			</Container>
 		</header>
 	);

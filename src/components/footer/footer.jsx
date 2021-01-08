@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Col, Row, Container } from 'react-bootstrap/';
+import './footer.css';
 
 class Footer extends Component {
 	state = {};
@@ -8,18 +10,15 @@ class Footer extends Component {
 		return (
 			<footer className="main-footer">
 				<br></br>
-				<div className="container">
+				<Container>
 					<center>
 						<span>Keep in touch with me!</span>
 					</center>
-				</div>
+				</Container>
 				<br></br>
 			</footer>
 		);
 	}
 }
-const imgBg = {
-	height: 'auto',
-	width: 'auto',
-};
+
 export default Footer;

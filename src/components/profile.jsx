@@ -26,7 +26,9 @@ class Profile extends Component {
 								alt="Smiley face"></img>
 						</Col>
 						<Col style={CardName} xs={{ offset: 1 }}>
-							<p> AA</p>
+							<center>
+								<p>Not just your average boy</p>
+							</center>
 						</Col>
 					</Row>
 				</Container>

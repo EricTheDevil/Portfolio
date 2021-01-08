@@ -14,6 +14,15 @@ import { gsap } from 'gsap';
 import dragonImg from '../../img/dragon.png';
 import { useSpring, a } from 'react-spring/three';
 import '../../lib/font.css';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import { TextPlugin } from 'gsap/TextPlugin';
+
+if (typeof window !== `undefined`) {
+	gsap.registerPlugin(ScrollTrigger);
+	gsap.core.globals('ScrollTrigger', ScrollTrigger);
+	gsap.registerPlugin(TextPlugin);
+}
 
 const Intro = () => {
 	const SpinningMesh = ({ position, color, speed, args }) => {
@@ -50,49 +59,73 @@ const Intro = () => {
 			// </Box>
 		);
 	};
-	// Effect for moving dragon
-	useEffect(() => {
-		const tl = gsap.timeline({ repeat: 50, repeatDelay: 1 });
-		tl.to('.dragon', {
-			yPercent: 50,
-			top: '50%',
-			ease: 'slow',
-			duration: 1,
-		});
-		tl.to('.dragon', {
-			yPercent: 0,
-			top: '0%',
-			ease: 'slow',
-			duration: 1,
-		});
-		tl.to('.dragon', {
-			xPercent: 20,
-			left: '20%',
-			ease: 'slow',
-			duration: 1,
-		});
-		tl.to('.dragon', {
-			xPercent: 0,
-			left: '0%',
-			ease: 'slow',
-			duration: 1,
-		});
-	}, []);
 
 	// Effect for moving name
+	/*
+	useEffect(() => {
+		const tl = gsap.timeline();
+		gsap.set([nameHolder.current], { autoAlpha: 0 });
+		tl.to([nameHolder.current], { autoAlpha: 1, duration: 1 });
+		tl.to([nameHolder.current], {
+			scrambleText: { text: 'Eric Ng', revealDelay: 0.7, duration: 5 },
+		});
+		tl.to([nameHolder.current], { top: '-=20', autoAlpha: 0, duration: 2.5 });
+		tl.staggerTo([nameHolder.current], 1, {
+			left: '-=150',
+			autoAlpha: 0,
+			ease: 'Elastic.easeIn',
+			duration: 2,
+		});
+    }, []);
+    */
+
+	const nameHolder = useRef(); // Reference to the wrapper for names
+	const firstRole = useRef(); // Reference to the first role under the names
+	const secondRole = useRef(); // Reference to the second role under the names
 
 	useEffect(() => {
 		const tl = gsap.timeline();
+		gsap.set([nameHolder.current], {
+			autoAlpha: 1,
+			scaleY: 0,
+			transformOrigin: '0% 50%',
+		});
 		tl.to(
-			'.namesHolder',
+			[nameHolder.current],
 			{
-				yPercent: -10,
-				ease: 'Elastic.easeOut',
-				opacity: 1,
+				autoAlpha: 1,
+				scale: 1,
+				transformOrigin: '50% bottom',
+				z: 0.1,
 				duration: 1,
+				scrub: true,
 			},
 			0
 		);
+		tl.to(
+			[firstRole.current],
+			{
+				duration: 2,
+				text: 'Programmer',
+				delay: 1,
+				scrub: true,
+			},
+			0.2
+		);
+		tl.to([nameHolder.current], {
+			autoAlpha: 0,
+			transformOrigin: 'center -160px',
+			rotation: 170,
+			z: 0.1,
+			scrub: true,
+
+			scrollTrigger: {
+				trigger: [nameHolder.current],
+				start: 'top top', // when the top of the trigger hits the top of the viewport
+				end: '+=500', // end after scrolling 500px beyond the start
+				scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+			},
+		});
 	}, []);
 
 	return (
@@ -140,14 +173,21 @@ const Intro = () => {
 							</group>
 						</Canvas>
 					</div>
+
 					<div style={rightContainerWrap}>
 						<div style={mainMiniDescript}>
-							<div className="namesHolder">
+							<div className="namesHolder" ref={nameHolder}>
 								<span className="firstName">Eric </span>
 								<span className="lastName"> Ng </span>
+
+								<h1 className="firstRole" ref={firstRole}>
+									MRMRAORPEG
+								</h1>
+								<h1 className="secondRole" ref={secondRole}>
+									Designer
+								</h1>
 							</div>
-							<p className="myFirstRole"> Programmer </p>
-							<p className="mySecondRole"> Designer </p>
+							<KeyboardArrowDownIcon />
 						</div>
 					</div>
 				</Row>
@@ -155,7 +195,31 @@ const Intro = () => {
 		</div>
 	);
 };
-
+function animateAnything() {
+	/*
+	var tl = gsap.timeline(),
+		anything = document.getElementById('anything'),
+		icon = document.getElementById('anythingIcon'),
+		sub = document.getElementById('anythingSub');
+	gsap.set([anything, icon], { autoAlpha: 0 });
+	tl.to([anything, icon], 0.9, { autoAlpha: 1 });
+	tl.to(
+		anything,
+		2.5,
+		{ scrambleText: { text: 'Animate anything', revealDelay: 0.7 } },
+		0
+	);
+	tl.from(sub, 0.5, { top: '-=20', autoAlpha: 0 }, 2.5);
+	tl.staggerTo(
+		[anything, sub, icon],
+		0.6,
+		{ left: '-=150', autoAlpha: 0, ease: Power1.easeIn },
+		0.1,
+		6
+	);
+    return tl;
+    */
+}
 function Box(props) {
 	// This reference will give us direct access to the mesh
 	const mesh = useRef();
