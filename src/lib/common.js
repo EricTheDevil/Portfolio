@@ -15,3 +15,5 @@ export { default as Intro } from '../components/intro/intro.jsx';
 
 export { default as Projects } from '../components/projects/projects.jsx';
 export { default as Spinner } from '../components/spinner/spinner.jsx';
+
+export { default as Main } from '../components/main/main.jsx';

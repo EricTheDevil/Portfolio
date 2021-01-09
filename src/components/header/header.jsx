@@ -12,7 +12,7 @@ import '../../lib/font.css';
 import './header.css';
 import ComputerIcon from '@material-ui/icons/Computer';
 
-const Header = React.forwardRef((props, ref) => {
+const Header = () => {
 	const fixedText = ' ';
 	const whenNotFixed = 'Introduction';
 	const [headerText, setHeaderText] = useState(whenNotFixed);
@@ -88,5 +88,5 @@ const Header = React.forwardRef((props, ref) => {
 			</Container>
 		</header>
 	);
-});
+};
 export default Header;
