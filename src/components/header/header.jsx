@@ -12,19 +12,22 @@ import '../../lib/font.css';
 import './header.css';
 import ComputerIcon from '@material-ui/icons/Computer';
 
-const Header = () => {
+const Header = React.forwardRef((props, ref) => {
 	const fixedText = ' ';
 	const whenNotFixed = 'Introduction';
-	const [headerText, setHeaderText] = useState(whenNotFixed);
-
+	const [headerText, setHeaderText] = useState(fixedText);
+	const refs = useRef();
 	useEffect(() => {
 		const header = document.getElementById('myHeader');
 		header.classList.add('sticky');
 		const sticky = header.offsetTop;
 		const scrollCallBack = window.addEventListener('scroll', () => {
+			if (header.style.backgroundColor === '#f1efed') {
+				setHeaderText(whenNotFixed);
+			}
 			if (window.pageYOffset > sticky) {
 				if (headerText !== fixedText) {
-					setHeaderText(fixedText);
+					setHeaderText(whenNotFixed);
 				}
 			}
 			/* else {
@@ -64,7 +67,7 @@ const Header = () => {
 	};
 
 	return (
-		<header id="myHeader" className="header">
+		<header id="myHeader" className="header" ref={ref}>
 			<Container>
 				<Row>
 					<Col xs={3}>
@@ -75,7 +78,9 @@ const Header = () => {
 					</Col>
 					<Col xs={6}>
 						<center>
-							<span> Title{headerText}</span>
+							<span ref={refs} className="headerText">
+								Title{headerText}
+							</span>
 						</center>
 					</Col>
 					<Col xs={3}>
@@ -88,5 +93,5 @@ const Header = () => {
 			</Container>
 		</header>
 	);
-};
+});
 export default Header;

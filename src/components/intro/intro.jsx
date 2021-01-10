@@ -15,16 +15,16 @@ import dragonImg from '../../img/dragon.png';
 import { useSpring, a } from 'react-spring/three';
 import '../../lib/font.css';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { TextPlugin } from 'gsap/TextPlugin';
 
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 if (typeof window !== `undefined`) {
 	gsap.registerPlugin(ScrollTrigger);
 	gsap.core.globals('ScrollTrigger', ScrollTrigger);
 	gsap.registerPlugin(TextPlugin);
 }
 
-const Intro = () => {
+const Intro = React.forwardRef((props, ref) => {
 	const SpinningMesh = ({ position, color, speed, args }) => {
 		//ref to target the mesh
 		const mesh = useRef();
@@ -130,7 +130,7 @@ const Intro = () => {
 
 	return (
 		<div>
-			<Container style={mainContainer} fluid>
+			<Container style={mainContainer} fluid ref={ref}>
 				<Row style={full}>
 					<div className="w-50 p-3">
 						<Canvas
@@ -194,7 +194,7 @@ const Intro = () => {
 			</Container>
 		</div>
 	);
-};
+});
 function animateAnything() {
 	/*
 	var tl = gsap.timeline(),
