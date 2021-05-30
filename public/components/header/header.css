@@ -1,0 +1,29 @@
+.firstName {
+	font-family: 'EB Garamond', serif;
+	font-size: 10vw;
+}
+
+.lastName {
+	font-family: 'EB Garamond', serif;
+	font-size: 10vw;
+}
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	height: 2em;
+	line-height: 20px;
+	font-size: 40px;
+	color: #f1efed;
+	font-family: 'Quicksand', cursive;
+	background: #111f28;
+}
+.sticky {
+	margin: 0px;
+	padding: 0px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
